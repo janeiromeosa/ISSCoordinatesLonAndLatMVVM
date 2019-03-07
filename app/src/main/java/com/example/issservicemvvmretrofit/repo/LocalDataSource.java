@@ -5,7 +5,7 @@ import java.util.Observer;
 public class LocalDataSource implements DataSource {
 
     @Override
-    public void getCoordinatesForLocation(String latitude, String longtitude) {
+    public void getCoordinatesForLocation(String latitude, String longitude) {
 
     }
 

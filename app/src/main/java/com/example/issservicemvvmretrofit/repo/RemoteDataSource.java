@@ -38,17 +38,17 @@ public class RemoteDataSource extends Observable implements DataSource {
     }
 
     @Override
-    public void getCoordinatesForLocation(String latitude, String longtitude) {
+    public void getCoordinatesForLocation(String latitude, String longitude) {
 
-        final List<com.example.issservicemvvmretrofit.data.Response> responsesList = new ArrayList<>();
-        issService.getCoordinates(latitude, longtitude).enqueue(new Callback<ISSRepo>() {
+        final List<com.example.issservicemvvmretrofit.data.Response> responseList = new ArrayList<>();
+        issService.getCoordinates(latitude, longitude).enqueue(new Callback<ISSRepo>() {
             @Override
             public void onResponse(Call<ISSRepo> call, Response<ISSRepo> response) {
                 if(response.isSuccessful() && response.body().getResponse() != null){
-                    responsesList.clear();
-                    responsesList.addAll(response.body().getResponse());
+                    responseList.clear();
+                    responseList.addAll(response.body().getResponse());
                     setChanged();
-                    notifyObservers(responsesList);
+                    notifyObservers(responseList);
                 }
             }
 

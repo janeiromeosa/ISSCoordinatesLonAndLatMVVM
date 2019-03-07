@@ -20,7 +20,7 @@ public class HomeViewModel implements Observer {
     private final MutableLiveData<List<Response>> responseLiveData = new MutableLiveData<>();
 
     public HomeViewModel() {
-        this.issRepository = new ISSRepository(new LocalDataSource(), new RemoteDataSource());
+        issRepository = new ISSRepository(new LocalDataSource(), new RemoteDataSource());
     }
 
     @Override
@@ -33,8 +33,8 @@ public class HomeViewModel implements Observer {
         return responseLiveData;
     }
 
-    public void getResponses(String latitude, String longtitude){
+    public void getResponses(String latitude, String longitude){
         issRepository.setObserver(this);
-        issRepository.getCoordinatesForLocation(latitude,longtitude);
+        issRepository.getCoordinatesForLocation(latitude,longitude);
     }
 }

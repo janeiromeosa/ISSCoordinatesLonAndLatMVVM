@@ -14,15 +14,15 @@ public class ISSRepository extends Observable implements Observer, DataSource {
     }
 
     @Override
-    public void update(Observable o, Object arg) {
+    public void update(Observable observable, Object result) {
         setChanged();
-        notifyObservers();
+        notifyObservers(result);
     }
 
     @Override
-    public void getCoordinatesForLocation(String latitude, String longtitude) {
+    public void getCoordinatesForLocation(String latitude, String longitude) {
         remoteDataSource.setObserver(this);
-        remoteDataSource.getCoordinatesForLocation(latitude, longtitude);
+        remoteDataSource.getCoordinatesForLocation(latitude, longitude);
     }
 
     @Override

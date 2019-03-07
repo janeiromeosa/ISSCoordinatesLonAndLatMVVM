@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.issservicemvvmretrofit.R;
+import com.example.issservicemvvmretrofit.data.ISSRepo;
 import com.example.issservicemvvmretrofit.data.Response;
 
 import java.util.ArrayList;
@@ -33,8 +34,9 @@ public class ISSAdapter extends RecyclerView.Adapter<ISSAdapter.ISSViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ISSViewHolder issViewHolder, int position) {
-        issViewHolder.tvDuration.setText(responseList.get(position).getDuration());
-        issViewHolder.tvRiseTime.setText(responseList.get(position).getRisetime());
+        Response response = responseList.get(position);
+        issViewHolder.tvDuration.setText(response.getDuration().toString());
+        issViewHolder.tvRiseTime.setText(response.getRisetime().toString());
     }
 
     @Override

@@ -28,12 +28,14 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.rvData);
 
         final EditText etLatitude = findViewById(R.id.etLatitude);
-        final EditText etLongtitude = findViewById(R.id.etLongitude);
+        final EditText etLongitude = findViewById(R.id.etLongitude);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration
                 (this, linearLayoutManager.getOrientation()));
+
         final ISSAdapter issAdapter = new ISSAdapter();
         recyclerView.setAdapter(issAdapter);
 
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 homeViewModel.getResponses(etLatitude.getText().toString(),
-                        etLongtitude.getText().toString());
+                        etLongitude.getText().toString());
             }
         });
     }
